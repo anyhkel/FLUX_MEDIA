@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -49,7 +48,7 @@ footer{border-top:1px solid var(--line);padding:30px 0 50px;color:#777;font-size
     <div class="hero-actions"><a class="btn primary" href="#browse" style="text-decoration:none">Khám phá đồ thuê →</a><button class="btn" onclick="openModal('rent')">💰 Cho thuê & kiếm thêm</button></div>
   </div>
   <div class="visual"><div class="mock"><div class="mocktop"><span>UniRent</span><span>📍 TP.HCM</span></div><div class="mocktitle">Đồ hot gần bạn</div><div class="mockgrid">
-    <div class="mini"><div class="pic">📷</div><b>Fujifilm X-A7</b><br><small>120k/ngày</small></div>
+<div class="mini"><div class="pic">📷</div><b>Fujifilm X-A7</b><br><small>120k/ngày</small></div>
     <div class="mini"><div class="pic">📽️</div><b>Máy chiếu mini</b><br><small>70k/ngày</small></div>
   </div></div></div>
 </section>
@@ -86,27 +85,26 @@ footer{border-top:1px solid var(--line);padding:30px 0 50px;color:#777;font-size
     </div>
   </div>
 </footer>
-
 <div class="modal" id="modal"><div class="modalbox"><div class="modalhead"><h2 id="modalTitle">Đăng món đồ</h2><button class="close" onclick="closeModal()">×</button></div><div id="modalContent"></div></div></div>
 <div class="toast" id="toast"></div>
 
 <script>
 const data=[
- {name:"Fujifilm X-A7",cat:"Công nghệ",price:120,icon:"📷",bg:"linear-gradient(135deg,#e9e1ff,#ffe9dc)",owner:"Minh Anh",school:"ĐH Văn Lang"},
- {name:"Máy chiếu mini",cat:"Công nghệ",price:70,icon:"📽️",bg:"linear-gradient(135deg,#dff4e8,#fff0c9)",owner:"Quốc Bảo",school:"UEH"},
- {name:"Máy tính Casio FX-580",cat:"Học tập",price:20,icon:"🧮",bg:"linear-gradient(135deg,#e9f0ff,#e9e9e9)",owner:"Thảo",school:"HUTECH"},
- {name:"Áo dài trắng",cat:"Sự kiện",price:80,icon:"👗",bg:"linear-gradient(135deg,#fff,#eadfff)",owner:"Linh",school:"ĐH Kinh tế"},
- {name:"Lều 2 người",cat:"Lifestyle",price:100,icon:"⛺",bg:"linear-gradient(135deg,#e6f4e8,#dcecff)",owner:"Khang",school:"Tôn Đức Thắng"},
- {name:"GoPro Hero 10",cat:"Công nghệ",price:150,icon:"🎥",bg:"linear-gradient(135deg,#f4e2e2,#e2eaff)",owner:"Duy",school:"RMIT"},
- {name:"Micro thu âm",cat:"Công nghệ",price:90,icon:"🎙️",bg:"linear-gradient(135deg,#eee,#dce8ff)",owner:"Phúc",school:"FPT"},
- {name:"Sách IELTS 15",cat:"Học tập",price:15,icon:"📚",bg:"linear-gradient(135deg,#fff1d8,#e8efff)",owner:"Ngọc",school:"USSH"}];
+ {name:"Fujifilm X-A7",cat:"Công nghệ",price:120,icon:"📷",image:"https://i.pinimg.com/736x/5a/a0/76/5aa076b434b1c242168c3790f8f84d92.jpg",bg:"linear-gradient(135deg,#e9e1ff,#ffe9dc)",owner:"Minh Anh",school:"ĐH Văn Lang"},
+ {name:"Máy chiếu mini",cat:"Công nghệ",price:70,icon:"📽️",image:"https://i.pinimg.com/736x/82/84/e3/8284e305146ef9e547bb8c473168009b.jpg",bg:"linear-gradient(135deg,#dff4e8,#fff0c9)",owner:"Quốc Bảo",school:"UEH"},
+ {name:"Máy tính Casio FX-580",cat:"Học tập",price:20,icon:"🧮",image:"https://i.pinimg.com/736x/f5/e9/30/f5e930c873d2121bc6535376da70ed44.jpg",bg:"linear-gradient(135deg,#e9f0ff,#e9e9e9)",owner:"Thảo",school:"HUTECH"},
+ {name:"Áo dài trắng",cat:"Sự kiện",price:80,icon:"👗", image:"https://i.pinimg.com/1200x/7a/89/4a/7a894ab8b13fce9b2614071c86b0865d.jpg",bg:"linear-gradient(135deg,#fff,#eadfff)",owner:"Linh",school:"ĐH Kinh tế"},
+ {name:"Lều 2 người",cat:"Lifestyle",price:100,icon:"⛺", image:"https://i.pinimg.com/736x/c4/b8/f6/c4b8f615fcfcd3e19bebb67f74a1bdc9.jpg",bg:"linear-gradient(135deg,#e6f4e8,#dcecff)",owner:"Khang",school:"Tôn Đức Thắng"},
+ {name:"GoPro Hero 10",cat:"Công nghệ",price:150,icon:"🎥", image:"https://i.pinimg.com/236x/72/1f/77/721f77a3d4db425d60350c4d1460d157.jpg",bg:"linear-gradient(135deg,#f4e2e2,#e2eaff)",owner:"Duy",school:"RMIT"},
+ {name:"Micro thu âm",cat:"Công nghệ",price:90,icon:"🎙️",image:"https://i.pinimg.com/1200x/18/c1/17/18c117f091df53c6cdcaa1f8bd095668.jpg",bg:"linear-gradient(135deg,#eee,#dce8ff)",owner:"Phúc",school:"FPT"},
+ {name:"Sách IELTS 15",cat:"Học tập",price:15,icon:"📚", image:"https://sachngoaingugiare.com/wp-content/uploads/2021/05/elts15-2.jpg",bg:"linear-gradient(135deg,#fff1d8,#e8efff)",owner:"Ngọc",school:"USSH"}];
 let category="Tất cả";
 function render(){
  let q=document.getElementById("search").value.toLowerCase(), sort=document.getElementById("sort").value;
  let arr=data.filter(x=>(category==="Tất cả"||x.cat===category)&&x.name.toLowerCase().includes(q));
  if(sort==="low")arr.sort((a,b)=>a.price-b.price); if(sort==="high")arr.sort((a,b)=>b.price-a.price);
  document.getElementById("count").textContent=arr.length+" món";
- document.getElementById("products").innerHTML=arr.map((x,i)=>`<article class="card"><div class="photo" style="background:${x.bg}"><span class="tag">${x.cat}</span><button class="heart" onclick="like(this)">♡</button>${x.icon}</div><div class="cardbody"><div class="title">${x.name}</div><div class="price">${x.price}.000đ <span>/ ngày</span></div><div class="meta">📍 ${x.school}</div><div class="owner"><span class="avatar">${x.owner[0]}</span>${x.owner} · ⭐ 4.9</div><button class="btn primary" style="width:100%;margin-top:13px" onclick="book('${x.name}',${x.price})">Thuê món này</button></div></article>`).join("");
+ document.getElementById("products").innerHTML=arr.map((x,i)=>`<article class="card"><div class="photo" style="background:${x.bg}"><span class="tag">${x.cat}</span><button class="heart" onclick="like(this)">♡</button>${x.image?`<img src="${x.image}" alt="${x.name}" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0" onerror="this.style.display='none'">`:x.icon}</div><div class="cardbody"><div class="title">${x.name}</div><div class="price">${x.price}.000đ <span>/ ngày</span></div><div class="meta">📍 ${x.school}</div><div class="owner"><span class="avatar">${x.owner[0]}</span>${x.owner} · ⭐ 4.9</div><button class="btn primary" style="width:100%;margin-top:13px" onclick="book('${x.name}',${x.price})">Thuê món này</button></div></article>`).join("");
 }
 function filterCat(c,el){category=c;document.querySelectorAll(".chip").forEach(x=>x.classList.remove("active"));el.classList.add("active");render()}
 function like(b){b.textContent=b.textContent==="♡"?"♥":"♡";b.style.color=b.textContent==="♥"?"#e25555":""}
@@ -123,4 +121,3 @@ render();
 </script>
 </body>
 </html>
-
